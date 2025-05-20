@@ -1,42 +1,32 @@
-body {
-  margin: 0px;
-}
+   .card-container {
+      perspective: 1000px;
+    }
 
-#game_grid {
-  border: 2px tomato solid;
-  width: 600px;
-  height: 400px;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
 
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
 
-.card {
-  width: 33.3%;
-  position: relative;
-  transition: transform 1s;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
+    .card-face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.25rem;
+    }
 
-
-img {
-  width: 100%
-}
-
-.front_face,
-.back_face {
-  position: absolute;
-  backface-visibility: hidden;
-}
-
-
-.flip {
-  transform: rotateY(180deg);
-}
-
-
-.front_face {
-  transform: rotateY(180deg);
-}
+    .card-back {
+      transform: rotateY(180deg);
+    }
